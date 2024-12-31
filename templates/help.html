@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Match</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Want to give/get help?</h1>
+    </header>
+    <main>
+        <form action="/help" method="post">
+            {{ csrf_token }}
+            <label for="channel">Channel:</label>
+            <select name="channel" id="channel">
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="in-person">In-person</option>
+            </select>
+
+            <label for="role">Role:</label>
+            <select name="role" id="role">
+                <option value="giver">Giver</option>
+                <option value="receiver">Receiver</option>
+            </select>
+
+            <label for="specific">Specific:</label>
+            <select name="specific" id="specific">
+                <option value="technical">Technical</option>
+                <option value="non-technical">Non-technical</option>
+            </select>
+
+            <label for="help-description">Help Description:</label>
+            <textarea name="help-description" id="help-description" rows="4" cols="50"></textarea>
+
+            <button type="button" onclick="prefillForm()">Prefill</button>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <script>
+        function prefillForm() {
+            document.getElementById('channel').value = 'email';
+            document.getElementById('role').value = 'giver';
+            document.getElementById('specific').value = 'technical';
+            document.getElementById('help-description').value = 'I need help with a technical issue.';
+        }
+    </script>
+</body>
+</html>
