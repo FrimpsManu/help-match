@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://danielongithub17.github.io/funcs.js"></script>
     <title>Help Match</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
@@ -41,6 +42,6 @@
         </form>
     </main>
     {{ HELP_DATA|json_script:"HELP_DATA" }}
-    <script src="{% static 'help.js' %}" type="module"></script>
+    <script src="{% static 'help/help.js' %}" type="module"></script>
 </body>
 </html>
