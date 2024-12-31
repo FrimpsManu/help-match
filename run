@@ -5,6 +5,8 @@ run="$1"
 declare -A commands
 commands["-r"]="python manage.py runserver"
 commands["-s"]="python manage.py shell"
+commands["-m"]="python manage.py makemigrations"
+commands["-M"]="python manage.py migrate"
 commands["-d"]="docker run --rm -p 6379:6379 redis:latest"
 
 if [ "$run" ]; then
