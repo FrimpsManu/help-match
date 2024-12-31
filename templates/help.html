@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,13 +40,7 @@
             <button type="submit">Submit</button>
         </form>
     </main>
-    <script>
-        function prefillForm() {
-            document.getElementById('channel').value = 'email';
-            document.getElementById('role').value = 'giver';
-            document.getElementById('specific').value = 'technical';
-            document.getElementById('help-description').value = 'I need help with a technical issue.';
-        }
-    </script>
+    {{ HELP_DATA|json_script:"HELP_DATA" }}
+    <script src="{% static 'help.js' %}" type="module"></script>
 </body>
 </html>
