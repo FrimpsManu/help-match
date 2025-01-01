@@ -15,7 +15,7 @@
         "specific": ["Algebra", "Calculus", "Geometry", "Statistics", "Linear Algebra", "Discrete Math", "Differential Equations", "Trigonometry"]
     },
     "birthdays": {
-        "roles": ["Celebrant", "Wisher"]
+        "role": ["Celebrant", "Wisher"]
     },
     "career-interview-prep": {
         "specific": ["Behavioral", "Technical", "Case", "System Design"]
@@ -30,10 +30,10 @@
         "specific": ["adobe", "amazon", "apple", "atlassian", "bankofamerica", "bill", "bloomberg", "google", "jane", "meta", "microsoft", "nvidia"]
     },
     "community-bookworms": {
-        "roles": ["Bookworm"]
+        "role": ["Bookworm"]
     },
     "chat": {},
     "winter-break-hackathon": {
-        "roles": ["Participant", "Mentor", "Judge"]
+        "role": ["Participant", "Mentor", "Judge"]
     }
 }
