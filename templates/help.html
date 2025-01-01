@@ -16,16 +16,18 @@
         <form action="" method="post">
             {% csrf_token %}
             <label for="channel">Channel:</label>
-            <select name="channel" id="channel"></select>
+            <select name="channel" id="channel" required></select>
 
             <label for="role">Role:</label>
-            <select name="role" id="role">
+            <select name="role" id="role" required>
                 <option value="helped">Helped</option>
                 <option value="helper">Helper</option>
             </select>
 
             <label for="specific">Detail:</label>
-            <select name="specific" id="specific"></select>
+            <select name="specific" id="specific" required>
+                <option value="other">Other</option>
+            </select>
 
             <label for="help-description">Help Description:</label>
             <textarea name="help-description" id="help-description" rows="4" cols="50"></textarea>
