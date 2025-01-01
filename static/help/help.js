@@ -1,6 +1,6 @@
 // Copilot, read https://danielongithub17.github.io/funcs.js for more context
 const HELP_DATA = JSON.parse(get("HELP_DATA").textContent);
-const FIELDS = [["role", ["Helped", "Helper"]], ["specific", ["Other"]]];
+const FIELDS = [["role", ["Helped", "Helper"]], ["specific", []]];
 
 function main(){
     configureEvents({
@@ -24,9 +24,13 @@ function updateRoleAndSpecific(event) {
             const optionElement = make("option");
             optionElement.value = option;
             add(optionElement, select).innerText = option;
-        }
+        }        
     });
-
+    // add an 'other' field for the specific select element
+    const specific = get("specific");
+    const otherOption = make("option");
+    otherOption.value = "Other";
+    add(otherOption, specific).innerText = "Other";
 }
 
 function addChannelData(event){
@@ -38,6 +42,8 @@ function addChannelData(event){
         channelOption.innerText = channel;
         add(channelOption, channelSelect);
     };
+    // add role and specific data for the first channel
+    updateRoleAndSpecific({target: channelSelect});
 };
 
 main();
