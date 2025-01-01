@@ -91,19 +91,19 @@
     },
     "career-secured-the-bag": {
         "specific": [
-            "adobe",
-            "amazon",
-            "apple",
-            "atlassian",
-            "bankofamerica",
-            "bill",
-            "bloomberg",
-            "google",
-            "jane",
-            "meta",
-            "microsoft",
-            "nvidia"
-        ]
+            "Adobe",
+            "Amazon",
+            "Apple",
+            "Atlassian",
+            "Bank of America",
+            "Bill",
+            "Bloomberg",
+            "Google",
+            "Jane Street",
+            "Meta",
+            "Microsoft",
+            "NVIDIA"
+        ]        
     },
     "community-bookworms": {
         "role": [
