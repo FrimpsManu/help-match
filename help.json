@@ -1,39 +1,39 @@
 {
-    "academic-algorithms": {},
+    "academic-algorithms": {
+        "specific": ["Sorting", "Searching", "Graph", "Dynamic Programming", "Greedy", "Backtracking", "Bit Manipulation", "Recursion"]
+    },
     "academic-codepath": {
-        "specific": ["Technical Interview Prep", "Mobile App Development", "Cybersecurity"]
+        "specific": ["Technical Interview Prep", "Android App Development", "iOS App Development", "Cybersecurity"]
     },
     "academic-coding-help": {
-        "specific": ["C#", "C++", "CSS", "Go", "HTML", "Java", "JavaScript", "Kotlin", "PHP", "Python", "R", "SQL", "Swift", "TypeScript"]
+        "specific": ["C", "C#", "C++", "CSS", "Go", "HTML", "Java", "JavaScript", "Kotlin", "Machine Learning", "PHP", "Python", "R", "SQL", "Swift", "TypeScript"]
     },
-    "academic-homework-help": {},
-    "academic-math": {},
-    "announcements": {},
-    "birthdays": {},
-    "career-data-science": {},
-    "career-interview-prep": {},
-    "career-leetcode": {},
-    "career-questions": {},
-    "career-resume-review": {},
-    "career-secured-the-bag": {},
-    "community-bookworms": {},
-    "community-events": {},
-    "community-leetcode-studyrooms": {},
-    "community-memes": {},
-    "community-new-channels": {},
-    "community-news": {},
-    "community-productivity": {},
-    "community-shameless-plug": {},
-    "community-store": {},
-    "company-amazon": {},
-    "company-google": {},
-    "company-jane-street": {},
-    "company-meta": {},
-    "company-nvidia": {},
-    "feed": {},
-    "introductions": {},
-    "onboarding": {},
-    "opportunities": {},
-    "product-announcements": {},
-    "winter-break-hackathon": {}
+    "academic-homework-help": {
+        "specific": ["Computer Science", "Math", "Physics", "Essay"]
+    },
+    "academic-math": {
+        "specific": ["Algebra", "Calculus", "Geometry", "Statistics", "Linear Algebra", "Discrete Math", "Differential Equations", "Trigonometry"]
+    },
+    "birthdays": {
+        "roles": ["Celebrant", "Wisher"]
+    },
+    "career-interview-prep": {
+        "specific": ["Behavioral", "Technical", "Case", "System Design"]
+    },
+    "career-leetcode": {
+        "specific": ["Easy", "Medium", "Hard"]
+    },
+    "career-resume-review": {
+        "specific": ["Data Science", "Software Engineering", "Cybersecurity", "Product Management", "UX Design", "Finance", "Marketing"]
+    },
+    "career-secured-the-bag": {
+        "specific": ["adobe", "amazon", "apple", "atlassian", "bankofamerica", "bill", "bloomberg", "google", "jane", "meta", "microsoft", "nvidia"]
+    },
+    "community-bookworms": {
+        "roles": ["Bookworm"]
+    },
+    "chat": {},
+    "winter-break-hackathon": {
+        "roles": ["Participant", "Mentor", "Judge"]
+    }
 }
