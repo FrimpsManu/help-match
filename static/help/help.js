@@ -1,19 +1,43 @@
 // Copilot, read https://danielongithub17.github.io/funcs.js for more context
 const HELP_DATA = JSON.parse(get("HELP_DATA").textContent);
+const FIELDS = [["role", ["Helped", "Helper"]], ["specific", ["Other"]]];
+
+function main(){
+    configureEvents({
+        "load": [addChannelData],
+        "change": [updateRoleAndSpecific],
+    });
+}
 
 
-function addSelectData(){
+function updateRoleAndSpecific(event) {
+    /* Function to update the role and specific select elements based on the channel selected */
+    if (event.target.id != "channel") return;
+    const channel = event.target.value;
+    FIELDS.forEach(field_default => {
+        const [field, default_value] = field_default
+        const select = get(field);
+        /* Clear the select element */
+        select.innerHTML = "";
+        HELP_DATA[channel][field] = HELP_DATA[channel][field] || default_value;
+        for (const option of HELP_DATA[channel][field]) {
+            const optionElement = make("option");
+            optionElement.value = option;
+            add(optionElement, select).innerText = option;
+        }
+    });
+
+}
+
+function addChannelData(event){
     /* Function to add options to the select elements from HELP_DATA json */
     const channelSelect = get("channel");
-    const roleSelect = get("role");
-    const specificSelect = get("specific");
-
     for (const channel in HELP_DATA) {
-        const channelOption = document.createElement("option");
+        const channelOption = make("option");
         channelOption.value = channel;
         channelOption.innerText = channel;
-        channelSelect.appendChild(channelOption);
-    }
-
+        add(channelOption, channelSelect);
+    };
 };
 
+main();
