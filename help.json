@@ -1,39 +1,125 @@
 {
     "academic-algorithms": {
-        "specific": ["Sorting", "Searching", "Graph", "Dynamic Programming", "Greedy", "Backtracking", "Bit Manipulation", "Recursion"]
+        "specific": [
+            "Backtracking",
+            "Bit Manipulation",
+            "Dynamic Programming",
+            "Graph",
+            "Greedy",
+            "Recursion"
+        ]
     },
     "academic-codepath": {
-        "specific": ["Technical Interview Prep", "Android App Development", "iOS App Development", "Cybersecurity"]
+        "specific": [
+            "Android App Development",
+            "Cybersecurity",
+            "Technical Interview Prep",
+            "iOS App Development"
+        ]
     },
     "academic-coding-help": {
-        "specific": ["C", "C#", "C++", "CSS", "Go", "HTML", "Java", "JavaScript", "Kotlin", "Machine Learning", "PHP", "Python", "R", "SQL", "Swift", "TypeScript"]
+        "specific": [
+            "C",
+            "C#",
+            "C++",
+            "CSS",
+            "Go",
+            "HTML",
+            "Java",
+            "JavaScript",
+            "Kotlin",
+            "Machine Learning",
+            "PHP",
+            "Python",
+            "R",
+            "SQL",
+            "Swift",
+            "TypeScript"
+        ]
     },
     "academic-homework-help": {
-        "specific": ["Computer Science", "Math", "Physics", "Essay"]
+        "specific": [
+            "Computer Science",
+            "Essay",
+            "Math",
+            "Physics"
+        ]
     },
     "academic-math": {
-        "specific": ["Algebra", "Calculus", "Geometry", "Statistics", "Linear Algebra", "Discrete Math", "Differential Equations", "Trigonometry"]
+        "specific": [
+            "Algebra",
+            "Calculus",
+            "Differential Equations",
+            "Discrete Math",
+            "Geometry",
+            "Linear Algebra",
+            "Statistics",
+            "Trigonometry"
+        ]
     },
     "birthdays": {
-        "role": ["Celebrant", "Wisher"]
+        "role": [
+            "Celebrant",
+            "Wisher"
+        ]
     },
     "career-interview-prep": {
-        "specific": ["Behavioral", "Technical", "Case", "System Design"]
+        "specific": [
+            "Behavioral",
+            "Case",
+            "System Design",
+            "Technical"
+        ]
     },
     "career-leetcode": {
-        "specific": ["Easy", "Medium", "Hard"]
+        "specific": [
+            "Easy",
+            "Hard",
+            "Medium"
+        ]
     },
     "career-resume-review": {
-        "specific": ["Data Science", "Software Engineering", "Cybersecurity", "Product Management", "UX Design", "Finance", "Marketing"]
+        "specific": [
+            "Cybersecurity",
+            "Data Science",
+            "Finance",
+            "Marketing",
+            "Product Management",
+            "Software Engineering",
+            "UX Design"
+        ]
     },
     "career-secured-the-bag": {
-        "specific": ["adobe", "amazon", "apple", "atlassian", "bankofamerica", "bill", "bloomberg", "google", "jane", "meta", "microsoft", "nvidia"]
+        "specific": [
+            "adobe",
+            "amazon",
+            "apple",
+            "atlassian",
+            "bankofamerica",
+            "bill",
+            "bloomberg",
+            "google",
+            "jane",
+            "meta",
+            "microsoft",
+            "nvidia"
+        ]
     },
     "community-bookworms": {
-        "role": ["Bookworm"]
+        "role": [
+            "Bookworm"
+        ]
     },
-    "chat": {},
+    "chat": {
+        "role": [
+            "Human"
+        ]
+    },
     "winter-break-hackathon": {
-        "role": ["Participant", "Mentor", "Judge"]
+        "role": [
+            "Judge",
+            "Mentor",
+            "Participant"
+        ]
     }
 }
