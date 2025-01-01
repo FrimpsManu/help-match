@@ -1,4 +1,4 @@
-"""The Help Model"""
+"""The Person (to (be) help(ed)) Model"""
 from django.db import models
 from django.core.exceptions import ValidationError
 
@@ -10,7 +10,7 @@ def validate_role(value):
     if value not in HELP_ROLES:
         raise ValidationError("Role must be either 'helper' or 'helped'")
 
-class Help(models.Model):
+class Person(models.Model):
     """The Help Model"""
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE)
     channel = models.CharField(max_length=100)

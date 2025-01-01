@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from help.views import HelpView
+from home.views import HelpView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
