@@ -8,6 +8,7 @@ from extract_infp import extract_info
 @csrf_exempt
 class AISelect(View):
     """View to extract information from a help description using OpenAI API"""
+
     def post(self, request):
         """Accepts POST request with help description and returns extracted information"""
         help_description = request.POST.get("help-description", "")
@@ -16,7 +17,6 @@ class AISelect(View):
         extracted_info = extract_info(help_description)
         return JsonResponse({"extracted_info": extracted_info})
 
-    def get(self, request):
+    def get(self, _):
         """Handles GET request method, by returning an error response"""
-        print(request)
         return JsonResponse({"error": "Invalid request method"}, status=400)
