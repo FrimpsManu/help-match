@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://danielongithub17.github.io/funcs.js"></script>
+    <title>Help Match</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Want to give/get help?</h1>
+    </header>
+    <main>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="channel">Channel:</label>
+            <select name="channel" id="channel" required></select>
+
+            <label for="role">Role:</label>
+            <select name="role" id="role" required>
+                <option value="helped">Helped</option>
+                <option value="helper">Helper</option>
+            </select>
+
+            <label for="specific">Detail:</label>
+            <select name="specific" id="specific" required>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="help-description">Help Description:</label>
+            <textarea name="help-description" id="help-description" rows="4" cols="50"></textarea>
+
+            <button type="button" onclick="prefillForm()">Prefill</button>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    {{ HELP_DATA|json_script:"HELP_DATA" }}
+    <script src="{% static 'help/help.js' %}" type="module"></script>
+</body>
+</html>
