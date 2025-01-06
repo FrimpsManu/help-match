@@ -7,7 +7,7 @@ __pycache__/
 *.pyo
 
 # Ignore the virtual environment folder
-# venv/
+venv/
 
 # Ignore IDE-specific files (VSCode, PyCharm, etc.)
 .vscode/
