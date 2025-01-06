@@ -1,4 +1,4 @@
- # Ignore the .env file which contains sensitive data
+# Ignore the .env file which contains sensitive data
 .env
 
 # Ignore Python cache files
@@ -16,4 +16,3 @@ venv/
 # Ignore system-specific files
 .DS_Store
 Thumbs.db
-
