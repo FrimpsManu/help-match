@@ -1,7 +1,7 @@
 // Copilot, read https://danielongithub17.github.io/funcs.js for more context
 const HELP_DATA = JSON.parse(get("HELP_DATA").textContent);
 const FIELDS = [["role", ["Helped", "Helper"]], ["specific", []]];
-const FIELD_NAMES = ["channel", "role", "specific"];
+// const FIELD_NAMES = ["channel", "role", "specific"];
 
 function main(){
     configureEvents({
@@ -32,7 +32,11 @@ function selectInfoFromDescription(event){
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        FIELD_NAMES.forEach(field => get(field).value = data[field]);
+        // Get the channel select element and trigger change event
+        const channel = get("channel");
+        channel.value = data["channel"];
+        updateRoleAndSpecific({target: channel});
+        FIELDS.forEach(field => get(field[0]).value = data[field[0]]);
     })
     .catch(error=>{
         console.error("Error:", error);
