@@ -15,7 +15,7 @@ function selectInfoFromDescription(event){
     /* Function to extract the role, channel and specific from the description */
     if (event.target.id != "auto-fill-button") return;
     const description = get("help-description").value.trim();
-    MIN_DESCRIPTION_LENGTH = 10;
+    const MIN_DESCRIPTION_LENGTH = 10;
     if (!description || description.length <= MIN_DESCRIPTION_LENGTH){
         alert("Please enter a description (more than ten characters) to auto-fill the form.");
         return;
