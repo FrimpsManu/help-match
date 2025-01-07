@@ -12,9 +12,9 @@ class AISelect(View):
     def post(self, request):
         """Accepts POST request with help description and returns extracted information"""
         help_description = request.POST.get("help-description", "")
-        print(extract_info, help_description, sep='\n')
+        print(extract_info, help_description, sep="\n")
         # Mimic return value
-        return JsonResponse({"extracted_info": "{'channel': 'continue-coding', 'role': 'hithere', 'specific': 'nohty'}"})
+        return JsonResponse({"channel": "academic-math", "role": "Helper", "specific": "Calculus"})
         # if not help_description:
         #     return JsonResponse({"error": "Help description not provided"}, status=400)
         # extracted_info = extract_info(help_description)
