@@ -1,4 +1,5 @@
-// game.js
+import { Pod } from "./pod.js";
+import { Person } from "./person.js";
 
 class Game {
     constructor() {
@@ -7,7 +8,7 @@ class Game {
     }
 
     start() {
-        this.player();
+        // this.player();
     }
 
     end() {
