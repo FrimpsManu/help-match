@@ -1,8 +1,9 @@
 """Help app view"""
 import json
 
-from django.views.generic.edit import CreateView
-# from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, redirect
+from django.views import View
 
 from .models import Person
 
@@ -10,14 +11,21 @@ from .models import Person
 with open("help.json", 'r', encoding="utf-8") as help_file:
     HELP_DATA = json.load(help_file)
 
-class HelpView(CreateView):
+class Home(View):
     """The Help View"""
-    template_name = "help.html"
-    model = Person
-    fields = ["channel", "role", "specific"]
-    success_url = "/help/"
+    def post(self, request):
+        """Handle the form submission"""
+        # person = request.user.person
+        help_data = request.POST
+        for key, value in help_data.items():
+            print(key, value)
+            # setattr(person, key, value)
+        # person.save()
+        # Redirect to the help page
+        print(Person)
+        return redirect("/")
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["HELP_DATA"] = HELP_DATA
-        return context
+    def get(self, request):
+        """Render the help page"""
+        context = {"HELP_DATA": HELP_DATA}
+        return render(request, "help.html", context)
