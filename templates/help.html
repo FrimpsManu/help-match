@@ -32,9 +32,10 @@
 
             <label for="help-description">Help Description:</label>
             <textarea id="help-description" rows="4" cols="50"></textarea>
-
-            <button type="button" id="auto-fill-button">Auto-fill from description</button>
-            <button type="submit">Submit</button>
+            <div id="buttons">
+                <button type="button" id="auto-fill-button">Auto-fill from description</button>
+                <button type="submit">Submit</button>
+            </div>
         </form>
     </main>
     {{ HELP_DATA|json_script:"HELP_DATA" }}
