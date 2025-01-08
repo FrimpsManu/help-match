@@ -27,6 +27,8 @@ class Person {
         addEventListener("keyup", (event) => {
             let key = event.key;
             if (!(key in Person.moves)) return;
+            // will send move to socket, on socket response will move person
+            // This way, everyone connected to the socket channel will see the move
             let [dr, dc] = Person.moves[key];
             let [row, col] = [this.row + dr, this.col + dc];
             if (row < 0 || row >= Game.rows || col < 0 || col >= Game.cols) return;
