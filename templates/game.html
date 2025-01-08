@@ -10,7 +10,7 @@
 </head>
 <body>
     <table id="game-site"></table>
-    {{ GAME_DATA|json_script:"GAME_DATA" }}
+    {{ game_data|json_script:"game-data" }}
     <script src="{% static 'game/events.js' %}" type="module"></script>
     <script src="{% static 'game/game.js' %}" type="module"></script>
     <script src="{% static 'game/pod.js' %}" type="module"></script>
