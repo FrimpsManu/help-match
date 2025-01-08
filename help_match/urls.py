@@ -18,11 +18,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from home.views import HelpView
+from home.views import Home
 from ai_select.views import AISelect
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", HelpView.as_view(), name="help"),
+    path("", Home.as_view(), name="help"),
     path("ai-select/", AISelect.as_view(), name="ai-select"),
 ]
