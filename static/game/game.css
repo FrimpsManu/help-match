@@ -1,7 +1,47 @@
 body {
-    background-color: rgb(194, 235, 221); /* Soft green background */
+    background-color: rgb(201, 235, 223);
     font-family: Arial, sans-serif;        /* Set the font */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+#game-site {
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+    border: 50px solid green;
+}
+
+.row {
+    display: flex;
+}
+
+.pod {
+    width: 50px;
+    height: 50px;
+    border: thin solid #444;
+    background-color: rgb(194, 235, 221);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pod:hover {
+    background-color: lightgreen;
+}
+
+/* Add styles for a per */
