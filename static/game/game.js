@@ -31,6 +31,7 @@ class Game {
     static rows = 10;
     static cols = 10;
     static site = get("game-site");
+    static data = JSON.parse(get("game-data").textContent);
 }
 
 export { Game };
