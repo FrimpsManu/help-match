@@ -24,10 +24,8 @@ class Game {
             }
         }
         this.person = new Person("John", "Doe", "johndoe", "helped", "specific");
-    }
-
-    get(row, col) {
-        return Game.site.rows[row].cells[col];
+        let initialPlace = this.person.role == "helped" ? [0, 0] : [Game.rows - 1, Game.cols - 1];
+        this.person.place(...initialPlace);
     }
 
     static rows = 10;
