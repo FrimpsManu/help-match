@@ -1,0 +1,125 @@
+{
+    "academic-algorithms": {
+        "specific": [
+            "Backtracking",
+            "Bit Manipulation",
+            "Dynamic Programming",
+            "Graph",
+            "Greedy",
+            "Recursion"
+        ]
+    },
+    "academic-codepath": {
+        "specific": [
+            "Android App Development",
+            "Cybersecurity",
+            "Technical Interview Prep",
+            "iOS App Development"
+        ]
+    },
+    "academic-coding-help": {
+        "specific": [
+            "C",
+            "C#",
+            "C++",
+            "CSS",
+            "Go",
+            "HTML",
+            "Java",
+            "JavaScript",
+            "Kotlin",
+            "Machine Learning",
+            "PHP",
+            "Python",
+            "R",
+            "SQL",
+            "Swift",
+            "TypeScript"
+        ]
+    },
+    "academic-homework-help": {
+        "specific": [
+            "Computer Science",
+            "Essay",
+            "Math",
+            "Physics"
+        ]
+    },
+    "academic-math": {
+        "specific": [
+            "Algebra",
+            "Calculus",
+            "Differential Equations",
+            "Discrete Math",
+            "Geometry",
+            "Linear Algebra",
+            "Statistics",
+            "Trigonometry"
+        ]
+    },
+    "birthdays": {
+        "role": [
+            "Celebrant",
+            "Non-Celebrant"
+        ]
+    },
+    "career-interview-prep": {
+        "specific": [
+            "Behavioral",
+            "Case",
+            "System Design",
+            "Technical"
+        ]
+    },
+    "career-leetcode": {
+        "specific": [
+            "Easy",
+            "Hard",
+            "Medium"
+        ]
+    },
+    "career-resume-review": {
+        "specific": [
+            "Cybersecurity",
+            "Data Science",
+            "Finance",
+            "Marketing",
+            "Product Management",
+            "Software Engineering",
+            "UX Design"
+        ]
+    },
+    "career-secured-the-bag": {
+        "specific": [
+            "Adobe",
+            "Amazon",
+            "Apple",
+            "Atlassian",
+            "Bank of America",
+            "Bill",
+            "Bloomberg",
+            "Google",
+            "Jane Street",
+            "Meta",
+            "Microsoft",
+            "NVIDIA"
+        ]        
+    },
+    "community-bookworms": {
+        "role": [
+            "Bookworm"
+        ]
+    },
+    "chat": {
+        "role": [
+            "Human"
+        ]
+    },
+    "winter-break-hackathon": {
+        "role": [
+            "Judge",
+            "Mentor",
+            "Participant"
+        ]
+    }
+}

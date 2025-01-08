@@ -12,7 +12,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     padding: 20px;
 }
 
@@ -25,7 +24,7 @@ form {
     max-width: 600px;
 }
 
-h1 {
+h1, header>p {
     font-size: 24px;
     text-align: center;
     color: #333;
@@ -45,6 +44,18 @@ select, textarea, button {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+}
+
+textarea{
+    resize: none;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+#buttons{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
 }
 
 button {

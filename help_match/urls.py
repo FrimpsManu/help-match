@@ -1,5 +1,5 @@
 """
-URL configuration for helpmatch project.
+URL configuration for help_match project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -14,9 +14,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 
+from ai_select.views import AISelect
+from home.views import Home
+from game.views import Game
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("ai-select/", AISelect.as_view(), name="ai-select"),
+    path("", Home.as_view(), name="help"),
+    path("game/", Game.as_view(), name="game"),
 ]
