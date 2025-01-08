@@ -1,5 +1,3 @@
-import { Game } from "./game";
-
 class Pod{
     constructor(row, col, rowParent){
         this.row = row;
