@@ -31,7 +31,8 @@ body {
 .pod {
     width: 50px;
     height: 50px;
-    border: thin solid #444;
+    /* border: thin solid #444; */
+    border-radius: 25px;
     background-color: rgb(194, 235, 221);
     display: flex;
     justify-content: center;
@@ -43,4 +44,11 @@ body {
     background-color: lightgreen;
 }
 
-/* Add styles for a per */
+/* Add styles for a person that will be moving through the blocks, the person is a div */
+.person {
+    width: 45px;
+    height: 45px;
+    background-color: #FCB432;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #FCB432;
+}
