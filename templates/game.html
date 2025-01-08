@@ -11,6 +11,7 @@
 <body>
     <table id="game-site"></table>
     {{ GAME_DATA|json_script:"GAME_DATA" }}
+    <script src="{% static 'game/events.js' %}" type="module"></script>
     <script src="{% static 'game/game.js' %}" type="module"></script>
     <script src="{% static 'game/pod.js' %}" type="module"></script>
     <script src="{% static 'game/person.js' %}" type="module"></script>
