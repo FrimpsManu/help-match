@@ -1,3 +1,6 @@
+import { Game } from "./game.js";
+import { Pod } from "./pod.js";
+
 class Person {
     constructor(firstName, lastName, username, role, specific) {
         Person.people[username] = this;
@@ -5,15 +8,18 @@ class Person {
             this[key] = arguments[key];
         }
         this.build();
-        // this.event();
+        this.event();
     }
 
     build(){
         (this.body = make()).className = "person";
+        this.body.obj = this;
     }
 
     place(row, col) {
-        let newCell = Game.get(row, col);
+        this.row = row;
+        this.col = col;
+        let newCell = Pod.get(row, col);
         add(this.body, newCell).obj.pod = newCell;
     }
 
