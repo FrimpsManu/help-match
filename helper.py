@@ -2,8 +2,9 @@
 import csv
 import json
 import os
-# import sys
+import sys
 import time
+
 
 N_DASHES = 80
 
@@ -39,3 +40,14 @@ def read_and_sort_json(file_path):
 
     with open(file_path, 'w', encoding="utf-8") as file:
         json.dump(data, file, indent=4)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python helper.py <command>")
+        sys.exit(1)
+    match sys.argv[1].lower():
+        case "log_start":
+            start_ai_output_log()
+        case "sort":
+            read_and_sort_json("help.json")
