@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 from ai_select.views import AISelect
+from chat.views import Chat
 from home.views import Home
 from game.views import Game
 
@@ -26,6 +27,7 @@ from game.views import Game
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("ai-select/", AISelect.as_view(), name="ai-select"),
+    path("chat/", Chat.as_view(), name="chat"),
     path("", Home.as_view(), name="help"),
     path("game/", Game.as_view(), name="game"),
     path("accounts/", include("allauth.urls")),
