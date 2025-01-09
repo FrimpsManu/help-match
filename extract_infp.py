@@ -29,15 +29,18 @@ def extract_info(problem_description):
     # prompt to send to GPT for extracting details
     prompt = f"""
     Extract the following details from the problem description:
-    - Channel: (e.g., academic-coding, leetcode, etc.)
-    - Role: (e.g., helper, helped)
-    - Specific: (e.g., Python, math, Essay, etc.)
+    - channel: (e.g., academic-coding, leetcode, etc.) From the keys of the json provided
+    - role: If not in the json, provide as "Helper" or "Helped"
+    - specific: Provided in the json (try to get THIS, please): if not in the json, provide as "Other"
     This is the json that contains info you should select from: {HELP_DATA}
     DO NOT OUTPUT WHAT IS NOT IN THE JSON
+
     Problem Description: "{problem_description}"
 
     Provide your response as a JSON object with the keys: channel, role, and specific.
-    It should look like this: {"channel": "academic-coding", "role": "helper", "specific": "Python"}
+    It should look like this: 
+    {{"channel": "academic-coding", "role": "helper", "specific": "Python"}}
+    Thanks a lot for your help.
     """
 
     # Send the request to OpenAI API using gpt-3.5-turbo engine
