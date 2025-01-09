@@ -10,7 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,8 +34,21 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     "https://turbo-fiesta-5j57r74xr5rf7jpp.github.dev/",
+    "https://bug-free-disco-rjj49575v7qc5prx-8000.app.github.dev/",
     "https://localhost:8000",
 ]
+
+
+# Email backend
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = os.getenv("EMAIL_PORT")
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # For debugging
 
 # Application definition
 
