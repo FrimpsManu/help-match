@@ -11,7 +11,7 @@ from .models import Person
 with open("help.json", 'r', encoding="utf-8") as help_file:
     HELP_DATA = json.load(help_file)
 
-class Home(View):
+class Home(View, LoginRequiredMixin):
     """The Help View"""
     def post(self, request):
         """Handle the form submission"""
