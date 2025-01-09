@@ -1,7 +1,8 @@
 """Utils"""
 import csv
 import json
-import sys
+import os
+# import sys
 import time
 
 N_DASHES = 80
@@ -16,6 +17,9 @@ def log_ai_output(help_description, response):
 
 def start_ai_output_log():
     """Start the AI output log by writing the header to the CSV file"""
+    # Make sure it's never overwritten
+    if os.path.exists("ai-output.csv"):
+        raise FileExistsError("ai-output.csv already exists. It should not be overwritten.")
     with open("ai-output.csv", 'w', newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=["time", "help_description", "response"])
         writer.writeheader()
