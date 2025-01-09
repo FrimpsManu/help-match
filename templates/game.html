@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://danielongithub17.github.io/funcs.js"></script>
+    <script src="https://danielongithub17.github.io/funcs.js" integrity="sha384-..." crossorigin="anonymous"></script>
     <title>Game</title>
     <link rel="stylesheet" href="{% static 'game/game.css' %}">
 </head>
 <body>
-    <table id="game-site"></table>
+    <table id="game-site" aria-label="Game Board"></table>
     {{ game_data|json_script:"game-data" }}
     <script src="{% static 'game/events.js' %}" type="module"></script>
     <script src="{% static 'game/game.js' %}" type="module"></script>
