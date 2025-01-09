@@ -1,14 +1,49 @@
 // Copilot, read https://danielongithub17.github.io/funcs.js for more context
 const HELP_DATA = JSON.parse(get("HELP_DATA").textContent);
 const FIELDS = [["role", ["Helped", "Helper"]], ["specific", []]];
+// const FIELD_NAMES = ["channel", "role", "specific"];
 
 function main(){
     configureEvents({
         "load": [addChannelData],
         "change": [updateRoleAndSpecific],
+        "click": [selectInfoFromDescription],
     });
 }
 
+function selectInfoFromDescription(event){
+    /* Function to extract the role, channel and specific from the description */
+    if (event.target.id != "auto-fill-button") return;
+    const description = get("help-description").value.trim();
+    const MIN_DESCRIPTION_LENGTH = 10;
+    if (!description || description.length <= MIN_DESCRIPTION_LENGTH){
+        alert("Please enter a description (more than ten characters) to auto-fill the form.");
+        return;
+    }
+    get("auto-fill-button").disabled = true;
+    fetch("ai-select/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": document.getElementsByName("csrfmiddlewaretoken")[0].value,
+        },
+        body: JSON.stringify({"help-description": description}),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Get the channel select element and trigger change event
+        const channel = get("channel");
+        channel.value = data["channel"];
+        updateRoleAndSpecific({target: channel});
+        FIELDS.forEach(field => get(field[0]).value = data[field[0]]);
+    })
+    .catch(error=>{
+        console.error("Error:", error);
+        alert("Error in AI auto-fill. Please fill the form manually.");
+    })
+    .finally(() => event.target.disabled = false);
+}
 
 function updateRoleAndSpecific(event) {
     /* Function to update the role and specific select elements based on the channel selected */

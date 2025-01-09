@@ -1,7 +1,22 @@
+"""Extract channel, role, and specific from a problem description using GPT-3.5 API
+
+Example of extracting information from a problem description
+
+# Example of Problem Description
+PROBLEM_DESCRIPTION = "I need help with academic coding, specifically in Python. I am a helper."
+
+# Call the function to extract information
+extracted_info = extract_info(PROBLEM_DESCRIPTION)
+
+# Output the extracted information
+print("Extracted Information:", extracted_info)
+"""
+
+import os
 import time
 import openai
-import os
 from dotenv import load_dotenv
+from home.views import HELP_DATA
 
 # Load environment variables from .env
 load_dotenv()
@@ -9,18 +24,23 @@ load_dotenv()
 # Get the OpenAI API key from the .env file
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-# Function to extract channel, role, and specific from a problem description
 def extract_info(problem_description):
+    """Function to extract channel, role, and specific from a problem description"""
     # prompt to send to GPT for extracting details
     prompt = f"""
     Extract the following details from the problem description:
-    - Channel: (e.g., academic-coding, leetcode, etc.)
-    - Role: (e.g., helper, helped)
-    - Specific: (e.g., Python, math, Essay, etc.)
+    - channel: (e.g., academic-coding, leetcode, etc.) From the keys of the json provided
+    - role: If not in the json, provide as "Helper" or "Helped"
+    - specific: Provided in the json (try to get THIS, please): if not in the json, provide as "Other"
+    This is the json that contains info you should select from: {HELP_DATA}
+    DO NOT OUTPUT WHAT IS NOT IN THE JSON
 
     Problem Description: "{problem_description}"
 
     Provide your response as a JSON object with the keys: channel, role, and specific.
+    It should look like this: 
+    {{"channel": "academic-coding", "role": "helper", "specific": "Python"}}
+    Thanks a lot for your help.
     """
 
     # Send the request to OpenAI API using gpt-3.5-turbo engine
@@ -37,17 +57,8 @@ def extract_info(problem_description):
         result = response['choices'][0]['message']['content'].strip()
 
         return result
-    
+
     except openai.error.RateLimitError:
         print("Rate limit exceeded, waiting for 60 seconds...")
         time.sleep(60)  # Wait for 60 seconds before retrying
         return extract_info(problem_description)  # Retry the function call
-
-# Example of Problem Description
-problem_description = "I need help with academic coding, specifically in Python. I am a helper."
-
-# Call the function to extract information
-extracted_info = extract_info(problem_description)
-
-# Output the extracted information
-print("Extracted Information:", extracted_info)
