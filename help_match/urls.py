@@ -30,5 +30,3 @@ urlpatterns = [
     path("game/", Game.as_view(), name="game"),
     path("accounts/", include("allauth.urls")),
 ]
-
-
