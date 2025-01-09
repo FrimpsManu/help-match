@@ -16,7 +16,7 @@ class AISelect(View):
     def post(self, request):
         """Accepts POST request with help description and returns extracted information"""
         # Get the help description from the request body
-        help_description = json.loads(request.body)
+        help_description = json.loads(request.body)["help-description"]
         # Mimic return value, for testing
         # return JsonResponse(
         # {"channel": "academic-math", "role": "Helper", "specific": "Calculus"})
