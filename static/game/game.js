@@ -28,8 +28,8 @@ class Game {
         this.person.place(...initialPlace);
     }
 
-    static rows = 10;
-    static cols = 10;
+    static rows = 13;
+    static cols = 13;
     static site = get("game-site");
     static data = JSON.parse(get("game-data").textContent);
 }
