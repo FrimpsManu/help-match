@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     "channels",
     "help_match",
     "home",
+    "game",
+    "chat",
+    "channeling",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -187,4 +190,19 @@ ACCOUNT_RATE_LIMITS = {
 
 ACCOUNT_FORMS = {
     "signup": "home.forms.NamedSignupForm",  # Make sure this points to the correct path
+}
+
+
+# Stuff for channels+redis
+
+
+CHANNEL_LAYERS = {
+  'default': {
+    'BACKEND': 'channels_redis.core.RedisChannelLayer',
+    'CONFIG': {
+      "hosts":[{
+            "address": os.getenv("REDISCLOUD_URL"),
+        }]
+    },
+  },
 }
