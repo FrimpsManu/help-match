@@ -171,4 +171,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # Or 'mandatory', 'none'
 LOGIN_REDIRECT_URL = '/'  # Redirect after login
-LOGOUT_REDIRECT_URL = '/'  # Redirect after logout
+LOGOUT_REDIRECT_URL = "/accounts/login"  # Redirect after logout
+LOGIN_URL = "/accounts/login/"  # URL for login
+ACCOUNT_LOGOUT_ON_GET = True  # Logout on GET request
