@@ -30,3 +30,28 @@ Thanks!
 # I'll move the cursor there please fix it.
 # : Sure, I'll fix it.
 # # It actually FIXED IT!!!
+
+January 10. 8:4x
+# What does the settings after #HI do?
+# ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS: The number of days before the email confirmation expires
+# ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN: The number of seconds before a new confirmation email can be sent
+# ACCOUNT_LOGIN_ATTEMPTS_LIMIT: The number of login attempts allowed
+# ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT: The number of seconds before the login attempts limit is reset
+
+# Can confirmation days be a float?
+# : 
+
+
+# Explain ACCOUNT_RATE_LIMITS
+# :param ACCOUNT_RATE_LIMITS: A dictionary containing the rate limits to apply to the different views.
+# : type ACCOUNT_RATE_LIMITS: dict
+# : default ACCOUNT_RATE_LIMITS: {}
+# : example ACCOUNT_RATE_LIMITS: {
+# :     "register": "5/h",
+# :     "login": "5/m",
+# : }
+# What does the example do?
+# : The example sets the rate limit for the register view to 5 requests per hour and the rate limit for the login view to 5 requests per minute.
+# : what does that mean
+# : The rate limit for the register view is set to 5 requests per hour, which means that a user can only make 5 requests to the register view in an hour.
+# okay
