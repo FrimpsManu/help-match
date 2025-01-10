@@ -39,12 +39,14 @@ a:hover {
     animation: fadeIn 0.8s ease-in-out;
 }
 
-.container > :first-child {
-    /* Styles for the navbar */
+div:has(ul) {
+    /* Styles for the navbar and messages */
     padding: 5px;
     background: rgb(111 191 114);
     border-radius: inherit;
+    margin-bottom: 5px;
 }
+
 
 h1 {
     color: #4CAF50;
