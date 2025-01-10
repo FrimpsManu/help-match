@@ -175,3 +175,16 @@ LOGIN_REDIRECT_URL = '/'  # Redirect after login
 LOGOUT_REDIRECT_URL = "/accounts/login"  # Redirect after logout
 LOGIN_URL = "/accounts/login/"  # URL for login
 ACCOUNT_LOGOUT_ON_GET = True  # Logout on GET request
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1/24  # 1 hour
+
+ACCOUNT_RATE_LIMITS = {
+    "register": "5/h",
+    "login": "5/m",
+    "confirm_email": "5/m",
+    "login_failed": "5/m",
+}
+
+ACCOUNT_FORMS = {
+    "signup": "home.forms.NamedSignupForm",  # Make sure this points to the correct path
+}
