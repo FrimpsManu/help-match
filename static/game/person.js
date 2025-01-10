@@ -2,17 +2,18 @@ import { Game } from "./game.js";
 import { Pod } from "./pod.js";
 
 class Person {
-    constructor(firstName, lastName, username, role, specific) {
-        Person.people[username] = this;
-        for (let key in arguments) {
-            this[key] = arguments[key];
+    constructor(details) {
+        Person.people[details["username"]] = this;
+        for (let key in details) {
+            this[key] = details[key];
         }
         this.build();
         this.event();
+        this.makeDetails();
     }
 
     build(){
-        (this.body = make()).className = "person";
+        (this.body = make()).className = `person ${this.role}`;
         this.body.obj = this;
     }
 
@@ -36,6 +37,19 @@ class Person {
         });
     }
 
+    makeDetails() {
+        this.details = {};
+        this.details["name"] = `${this.firstName} ${this.lastName}`;
+        this.details["role"] = this.role;
+        this.details["specific"] = this.specific;
+    }
+    fakeDetails() {
+        return {
+            "name": "",
+            "role": "",
+            "specific": ""
+        }
+    }
     static moves = {
         ArrowUp: [-1, 0],
         ArrowDown: [1, 0],
@@ -44,6 +58,22 @@ class Person {
     };
 
     static people = {};
+
+    static showDetails(event) {
+        // display person's details on "person-details" table in html
+        if (event.target.classList.contains("person")) Person.fillDetails(event.target.obj.details);
+    }
+
+    static hideDetails(event) {
+        if (event.target.classList.contains("person")) Person.fillDetails(event.target.obj.fakeDetails());
+    }
+
+    static fillDetails(details){
+        for (let key in details) {
+            get(`person-${key}`).textContent = details[key] || "";
+        }
+    }
+    static args = ["username", "firstName", "lastName", "role", "specific"]
 }
 
 export { Person };
