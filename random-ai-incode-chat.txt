@@ -55,3 +55,7 @@ January 10. 8:4x
 # : what does that mean
 # : The rate limit for the register view is set to 5 requests per hour, which means that a user can only make 5 requests to the register view in an hour.
 # okay
+
+
+What's the default rediscloud url if i'm using it in local environment
+: redis://localhost:6379/ or redis://
