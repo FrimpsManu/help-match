@@ -44,6 +44,11 @@ class Person {
     }
 
     exit(){
+        // log the names of the people in the pod to local storage
+        // then redirect to chat page.
+        // It is impossible to have two people with the same username
+        // So, joining the names with "_" will be a unique channel name for backend.
+        localStorage["saved-help-match-pod"] = [...pod.children].map(child => child.obj.username).sort().join("_");
         location.href = "/chat/";
     }
 
