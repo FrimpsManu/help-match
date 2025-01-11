@@ -19,7 +19,6 @@ function logError(event){
     console.error(error);
 }
 function messageSocket (event){
-    console.log(event, event.data);
     let data = jsonObj(event.data);
     // convert handler from snake to camel
     data.handler = data.handler.replace(/(_\w)/g, (match) => match[1].toUpperCase());
@@ -27,13 +26,11 @@ function messageSocket (event){
 };
 
 function closeSocket (event) {
-    console.log("Game socket closed. Reforming connection...");
     // create another one
     createGameSocket();
 };
 
 function openSocket(event){
-    console.log("Connection established with channels");
     // Tell everyone I am here...
     Game.socket.sendPersonEnter(Game.dataFromBackend());
 };

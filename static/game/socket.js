@@ -51,7 +51,6 @@ class GameSocket extends WebSocket{
 
     sendFormerEnter(former, username){
         let formerPersonDetails = Person.people[former].socketDetails;
-        console.log(formerPersonDetails);
         this.send(JSON.stringify({
             "handler": "former_enter",
             "data": {

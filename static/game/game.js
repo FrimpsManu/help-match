@@ -13,9 +13,6 @@ class Game {
         createGameSocket();
     }
 
-    end() {
-        console.log('Game ended');
-    }
 
     build() {
         // set the channel name
