@@ -32,8 +32,15 @@ class Person {
     }
 
     get shouldLeave(){
-        return (this.username == Game.data.username) &&
-         [...this.pod.children].map(child => child.obj.role).sort() == Person.roles;
+        // remember that objects in JS have no equality.
+        // Use sameArray function from https://danielongithub17.github.io/funcs.js
+        // Note: this function doesn't really check length of pod's children
+        let children = [...this.pod.children].map(child => child.obj);
+        let canReload = children.map(child => child.username).includes(Game.data.username)
+        , touchingDifferent = sameArray(
+            children.map(child => child.role).sort(), Person.roles
+        );
+        return canReload && touchingDifferent;
     }
 
     exit(){
