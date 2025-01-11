@@ -28,11 +28,15 @@
             <td id="person-specific"></td>
         </tr>
         <tr>
+            <tr><td><pre>             </pre></td></tr>
+            <td><a href="{% url 'help' %}">Home</a></td>
+        </tr>
     </table>
     {{ game_data|json_script:"game-data" }}
     <script src="{% static 'game/events.js' %}" type="module"></script>
     <script src="{% static 'game/game.js' %}" type="module"></script>
     <script src="{% static 'game/pod.js' %}" type="module"></script>
     <script src="{% static 'game/person.js' %}" type="module"></script>
+    <script src="{% static 'game/socket.js' %}" type="module"></script>
 </body>
 </html>
