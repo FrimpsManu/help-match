@@ -48,7 +48,21 @@ class Person {
         // then redirect to chat page.
         // It is impossible to have two people with the same username
         // So, joining the names with "_" will be a unique channel name for backend.
-        localStorage["saved-help-match-pod"] = [...pod.children].map(child => child.obj.username).sort().join("_");
+        let children = [...this.pod.children].map(child => child.obj);
+        let uniquePodName = children.map(child => child.username).sort().join("_")
+        ,  helper = children.find(child => child.role == "Helper")
+        ,  helped = children.find(child => child.role == "Helped");
+        let user = Game.data.username
+        ,  other = children.find(child => child.username != user).username;
+
+        localStorage["saved-help-match-pod"] = jsonStr({
+            "pod": uniquePodName,
+            "username": Game.data.username,
+            "helper": helper.chatDetails,
+            "helped": helped.chatDetails,
+            user: Person.people[user].chatDetails,
+            other: Person.people[other].chatDetails
+        });
         location.href = "/chat/";
     }
 
@@ -88,6 +102,15 @@ class Person {
         socketDetails["row"] = this.row;
         socketDetails["col"] = this.col;
         return socketDetails;
+    }
+
+    get chatDetails() {
+        return {
+            "role": this.role,
+            "specific": this.specific,
+            "username": this.username,
+            "name": `${this.firstName} ${this.lastName}`
+        }
     }
 
     makeDetails() {
