@@ -12,7 +12,6 @@ class Chat {
         get("helper-name").textContent = Chat.data.helper.name;
         get("helped-name").textContent = Chat.data.helped.name;
         Chat.pod = Chat.data.pod;
-
     }
 
     static events(){
@@ -43,7 +42,7 @@ class Chat {
         messageHolder.textContent = message;
 
         [senderName, messageHolder].forEach(child=>add(child, chatHolder));
-        add(chatHolder, Chat.chatsHolder);
+        add(chatHolder, Chat.chatsHolder).scrollIntoView();
 
     }
 
