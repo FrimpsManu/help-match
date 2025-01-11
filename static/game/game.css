@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body {
@@ -51,6 +52,11 @@ body {
     background-color: #FCB432;
     border-radius: 50%;
     box-shadow: 0 0 10px #FCB432;
+}
+
+.person.Helper{
+    background-color: lime;
+    box-shadow: 0 0 10px darkgreen;
 }
 
 /* Add styles for person-details that will make sure it is fixed at the top left */
