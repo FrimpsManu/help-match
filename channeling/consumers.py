@@ -11,8 +11,8 @@ class GameConsumer(AsyncWebsocketConsumer):
         super().__init__(*args, **kwargs)
         self.group_name = None
 
-    async def connect(self):
-        self.group_name = self.scope["url_route"]["kwargs"]["channel"]
+    async def connect(self, path="channel"):
+        self.group_name = self.scope["url_route"]["kwargs"][path]
         # Don't work if user is not authenticated
         if not self.scope["user"].is_authenticated:
             await self.close()
@@ -64,28 +64,15 @@ class GameConsumer(AsyncWebsocketConsumer):
         await self.send(text_data=event["data"])
 
 # Make a chat consumer
-class ChatConsumer(AsyncWebsocketConsumer):
+class ChatConsumer(GameConsumer):
     """Consumer for the chat websocket."""
-    group_name = "chat"
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.group_name = None
 
-    async def connect(self):
-        print(self.group_name)
-        await self.channel_layer.group_add(
-            self.group_name, self.channel_name
-        )
-        await self.accept()
-        print("Connected")
-
-    async def receive(self, text_data=None, bytes_data=None):
-        """Receive message from WebSocket."""
-        print("Received data from frontend", text_data)
-        await self.channel_layer.group_send(
-            self.group_name, {"type": "chat_message", "data": text_data}
-        )
-
-    async def default(self, event):
-        """Default handler for events."""
-
+    async def connect(self, path="pod"):
+        """Connect to the websocket."""
+        await super().connect(path)
 
     async def chat_message(self, event):
         """Handler for chat message event."""
