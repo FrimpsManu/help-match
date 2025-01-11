@@ -1,0 +1,208 @@
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #eaeaea;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #333;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar li {
+    margin-left: 20px;
+}
+
+.navbar a {
+    color: #eaeaea;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #66d9ef;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Chat Head */
+.chathead {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chathead h1 {
+    font-size: 24px;
+    color: #66d9ef;
+}
+
+#person-details {
+    margin: 10px auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 400px;
+}
+
+#person-details td {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+#person-details td:first-child {
+    font-weight: bold;
+    color: #66d9ef;
+}
+
+/* Messages Section */
+#messages {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #1e1e1e;
+}
+
+
+/* Chatbox and Button */
+#chatbox {
+    width: calc(100% - 100px);
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    resize: none;
+    margin-right: 10px;
+    background-color: #1e1e1e;
+    color: #eaeaea;
+}
+
+#chatbox:focus {
+    outline: none;
+    border-color: #66d9ef;
+    box-shadow: 0 0 5px rgba(102, 217, 239, 0.5);
+}
+
+#send {
+    padding: 15px 20px;
+    background-color: #66d9ef;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#send:hover {
+    background-color: #50b7c9;
+}
+
+/* Scrollbar customization */
+#messages::-webkit-scrollbar {
+    width: 10px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    background-color: #66d9ef;
+    border-radius: 5px;
+}
+
+#messages::-webkit-scrollbar-thumb:hover {
+    background-color: #50b7c9;
+}
+
+
+/* Messages Section */
+#messages {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adds spacing between messages */
+}
+
+.user, .other {
+    display: inline-block;
+    max-width: 70%;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #eaeaea;
+}
+
+/* User Messages */
+.user {
+    align-self: flex-end; /* Aligns user's messages to the right */
+    background-color: #2a85ff;
+    color: #ffffff;
+    text-align: right;
+}
+
+/* Other Messages */
+.other {
+    align-self: flex-start; /* Aligns other messages to the left */
+    background-color: #444;
+    color: #eaeaea;
+}
+
+/* Headers for User and Other */
+.user h4, .other h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #66d9ef;
+}
+
+/* Paragraphs for User and Other */
+.user p, .other p {
+    margin: 0;
+}
+
+/* Scrollbar Customization */
+#messages::-webkit-scrollbar {
+    width: 10px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    background-color: #66d9ef;
+    border-radius: 5px;
+}
+
+#messages::-webkit-scrollbar-thumb:hover {
+    background-color: #50b7c9;
+}

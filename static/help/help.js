@@ -31,7 +31,6 @@ function selectInfoFromDescription(event){
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         // Get the channel select element and trigger change event
         const channel = get("channel");
         channel.value = data["channel"];

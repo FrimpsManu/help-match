@@ -10,10 +10,33 @@
 </head>
 <body>
     <table id="game-site"></table>
+    <table id="person-details">
+        <tr>
+            <th id="game-channel">colorstack-family</th>
+        </tr>
+        <tr><td><pre>             </pre></td></tr>
+        <tr>
+            <td>Name:</td>
+            <td id="person-name"></td>
+        </tr>
+        <tr>
+            <td>Role:</td>
+            <td id="person-role"></td>
+        </tr>
+        <tr>
+            <td>Specific:</td>
+            <td id="person-specific"></td>
+        </tr>
+        <tr>
+            <tr><td><pre>             </pre></td></tr>
+            <td><a href="{% url 'help' %}">Home</a></td>
+        </tr>
+    </table>
     {{ game_data|json_script:"game-data" }}
     <script src="{% static 'game/events.js' %}" type="module"></script>
     <script src="{% static 'game/game.js' %}" type="module"></script>
     <script src="{% static 'game/pod.js' %}" type="module"></script>
     <script src="{% static 'game/person.js' %}" type="module"></script>
+    <script src="{% static 'game/socket.js' %}" type="module"></script>
 </body>
 </html>

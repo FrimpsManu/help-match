@@ -1,0 +1,206 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #333;
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Container Styling */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+div:has(ul) {
+    /* Styles for the navbar and messages */
+    padding: 5px;
+    background: rgb(111 191 114);
+    border-radius: inherit;
+    margin-bottom: 5px;
+}
+
+
+h1 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+strong {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.6);
+}
+
+button {
+    background: #4CAF50;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+/* Menu Styles */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+ul li a:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Help Text and Error Messages */
+.helptext {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: left;
+}
+
+.helptext ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    list-style: square;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.alert-success {
+    background: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.alert-error {
+    background: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 2rem;
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

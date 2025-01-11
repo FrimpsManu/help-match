@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 # Ignore the .env file which contains sensitive data
 .env
 
 # Ignore Python cache files
-=======
 # Byte-compiled / optimized / DLL files
->>>>>>> 77faf4cda6e404956706ef07f1fdd25bfa387031
 __pycache__/
 *.py[cod]
 *$py.class

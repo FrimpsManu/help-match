@@ -10,7 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +31,25 @@ SECRET_KEY = "django-insecure-c%-ly$f%6f4ni53rt)+!mjp6kly^o6pq1gnf3n8!q$^g4v49#n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    "https://turbo-fiesta-5j57r74xr5rf7jpp.github.dev/",
+    "https://bug-free-disco-rjj49575v7qc5prx-8000.app.github.dev/",
+    "https://localhost:8000",
+    "https://*"
+]
 
+
+# Email backend
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = os.getenv("EMAIL_PORT")
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # For debugging
 
 # Application definition
 
@@ -35,12 +58,20 @@ INSTALLED_APPS = [
     "channels",
     "help_match",
     "home",
+    "game",
+    "chat",
+    "channeling",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",  # Required by allauth
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",  # Add Google provider
 ]
 
 MIDDLEWARE = [
@@ -51,9 +82,13 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "help_match.urls"
+
+SITE_ID = 1
+
 
 TEMPLATES = [
     {
@@ -127,3 +162,47 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Stuff for Django-Allauth
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default backend
+    'allauth.account.auth_backends.AuthenticationBackend',  # Required for allauth
+]
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"  # Or 'username_email' or 'username'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # Or 'mandatory', 'none'
+LOGIN_REDIRECT_URL = '/'  # Redirect after login
+LOGOUT_REDIRECT_URL = "/accounts/login"  # Redirect after logout
+LOGIN_URL = "/accounts/login/"  # URL for login
+ACCOUNT_LOGOUT_ON_GET = True  # Logout on GET request
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1/24  # 1 hour
+
+ACCOUNT_RATE_LIMITS = {
+    "register": "5/h",
+    "login": "5/m",
+    "confirm_email": "5/m",
+    "login_failed": "5/m",
+}
+
+ACCOUNT_FORMS = {
+    "signup": "home.forms.NamedSignupForm",  # Make sure this points to the correct path
+}
+
+
+# Stuff for channels+redis
+
+
+CHANNEL_LAYERS = {
+  'default': {
+    'BACKEND': 'channels_redis.core.RedisChannelLayer',
+    'CONFIG': {
+      "hosts":[{
+            "address": os.getenv("REDISCLOUD_URL"),
+        }]
+    },
+  },
+}

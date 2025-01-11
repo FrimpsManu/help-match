@@ -1,8 +1,10 @@
+"""The game view module"""
 from django.views import View
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-class Game(View, LoginRequiredMixin):
+class Game(LoginRequiredMixin, View):
     """The game view"""
 
     person_fields = ("role", "channel", "specific")
@@ -10,20 +12,17 @@ class Game(View, LoginRequiredMixin):
 
     def get(self, request):
         """Render the game page"""
-        # Do a simulated request.user
-        request.user = {
-            "first_name": "John",
-            "last_name": "Doe",
-            "username": "johndoe",
-            "person": {
-                "role": "helper",
-                "channel": "academic-math",
-                "specific": "Calculus"
-            }
-        }
-        user, person = request.user, request.user["person"]
-        game_data = {field: person[field] for field in self.person_fields}
-        game_data.update({field: user[field] for field in self.user_fields})
+        user = request.user
+        if not hasattr(user, "person"):
+            messages.error(request, "Please fill in all fields")
+            return redirect("/")
+        person = user.person
+        game_data = {field: getattr(person, field) for field in self.person_fields}
+        game_data.update({field: getattr(user, field) for field in self.user_fields})
+        if not all(game_data.values()):
+            print(game_data)
+            messages.error(request, "Please fill in all fields")
+            return redirect("/")
         game_details = {
             "game_data": game_data
         }

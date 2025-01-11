@@ -1,0 +1,11 @@
+time,help_description,response
+1736391218.6957629,I just understood integration in calculus perfectly. Would be happy to aid anyone who is struggling.,"{
+    ""channel"": ""academic-math"",
+    ""role"": ""Helper"",
+    ""specific"": ""Calculus""
+}"
+1736549394.0894833,I just mastered not-so-difficult leetcode questions. Would be happy to give tips,"{
+    ""channel"": ""career-leetcode"",
+    ""role"": ""Helper"",
+    ""specific"": ""Easy""
+}"

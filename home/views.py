@@ -11,19 +11,18 @@ from .models import Person
 with open("help.json", 'r', encoding="utf-8") as help_file:
     HELP_DATA = json.load(help_file)
 
-class Home(View):
+class Home(LoginRequiredMixin, View):
     """The Help View"""
     def post(self, request):
         """Handle the form submission"""
-        # person = request.user.person
-        help_data = request.POST
-        for key, value in help_data.items():
-            print(key, value)
-            # setattr(person, key, value)
-        # person.save()
-        # Redirect to the help page
-        print(Person)
-        return redirect("/")
+        user = request.user
+        person = hasattr(user, "person") and user.person or Person(user=user)
+        for key, value in request.POST.items():
+            setattr(person, key, value)
+        for obj in (person, user):
+            obj.save()
+
+        return redirect("/game/")
 
     def get(self, request):
         """Render the help page"""
