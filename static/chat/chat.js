@@ -11,6 +11,7 @@ class Chat {
     static loadChatDetails(){
         get("helper-name").textContent = Chat.data.helper.name;
         get("helped-name").textContent = Chat.data.helped.name;
+        get("channel").textContent = `${get("game-channel").textContent} chat.`;
         Chat.pod = Chat.data.pod;
     }
 

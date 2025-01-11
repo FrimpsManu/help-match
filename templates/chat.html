@@ -18,27 +18,25 @@
 
     <div class="container">
         <div class="chathead">
-            <h1>Help Matched! Chat.</h1>
+            <h1 id="channel"></h1>
             <table id="person-details">
                 <tr>
                     <td>Helper: </td>
-                    <td id="helper-name">Jane Smith</td>
+                    <td id="helper-name">Helper Name</td>
                 </tr>
                 <tr>
                     <td>Helped: </td>
-                    <td id="helped-name">Michael Brown</td>
+                    <td id="helped-name">Helped Name</td>
                 </tr>
             </table>
         </div>
 
         <div id="messages">
             <div class="user">
-                <h4>Abrahab</h4>
-                <p>Hi there</p>
+                <p>Messages that you send</p>
             </div>
             <div class="other">
-                <h4>Augustine </h4>
-                <p>Hi there</p>
+                <p>Appear like this</p>
             </div>
         </div>
 
@@ -48,6 +46,8 @@
         </div>
 
     </div>
+    
+    {{ game_channel|json_script:"game-channel" }}
     <script src="{% static 'chat/events.js' %}" type="module"></script>
     <script src="{% static 'chat/chat.js' %}" type="module"></script>
     <script src="{% static 'chat/socket.js' %}" type="module"></script>
