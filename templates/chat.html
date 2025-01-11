@@ -1,40 +1,55 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Help Matched! Chat.</title>
     <link rel="stylesheet" href="/static/chatstyle.css">
+    <script src="https://danielongithub17.github.io/funcs.js"></script>
 </head>
 <body>
     <div class="navbar">
-
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/accounts/logout/">Logout</a></li>
+        </ul>
     </div>
 
     <div class="container">
+        <div class="chathead">
+            <h1>Help Matched! Chat.</h1>
+            <table id="person-details">
+                <tr>
+                    <td>Helper: </td>
+                    <td id="helper-name">Jane Smith</td>
+                </tr>
+                <tr>
+                    <td>Helped: </td>
+                    <td id="helped-name">Michael Brown</td>
+                </tr>
+            </table>
+        </div>
 
-        <div class="chatbox">
-            <div class="col1">
-                <div class="msgrow">
-                    <div class="msgtext">
-                        <h2>Abrahab</h2>
-                        <p>Hi there</p>
-                    </div>
-                </div>
-                <div class="msgrow msgrow2">
-                    <div class="msgtext">
-                        <h2>Augustine </h2>
-                        <p>Hi there</p>
-                    </div>
-                </div>
-                <input type="text" placeholder="Type your message here...">
+        <div id="messages">
+            <div class="user">
+                <h4>Abrahab</h4>
+                <p>Hi there</p>
             </div>
-            <div class="col2">
-
+            <div class="other">
+                <h4>Augustine </h4>
+                <p>Hi there</p>
             </div>
         </div>
 
+        <div>
+            <textarea type="text" id="chatbox" placeholder="Message here..."></textarea>
+            <button id="send">Send</button>
+        </div>
+
     </div>
-    
+    <script src="{% static 'chat/events.js' %}" type="module"></script>
+    <script src="{% static 'chat/chat.js' %}" type="module"></script>
+    <script src="{% static 'chat/socket.js' %}" type="module"></script>
 </body>
 </html>
