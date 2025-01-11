@@ -12,9 +12,32 @@ class Person {
         this.makeDetails();
     }
 
+    leave() {
+        this.body.remove();
+        delete Person.people[this.username];
+    }
+
     build(){
         (this.body = make()).className = `person ${this.role}`;
         this.body.obj = this;
+        this.place(...(this.role == "Helped" ? [0, 0] : [Game.rows - 1, Game.cols - 1]));
+    }
+
+    move(dir){
+        let [dr, dc] = Person.moves[Person.keys[dir]];
+        let [row, col] = [this.row + dr, this.col + dc];
+        if (row < 0 || row >= Game.rows || col < 0 || col >= Game.cols) return;
+        this.place(row, col);
+        this.shouldLeave && this.exit();
+    }
+
+    get shouldLeave(){
+        return (this.username == Game.data.username) &&
+         [...this.pod.children].map(child => child.obj.role).sort() == Person.roles;
+    }
+
+    exit(){
+        location.href = "/chat/";
     }
 
     place(row, col) {
@@ -25,16 +48,34 @@ class Person {
     }
 
     event() {
+        // if not the user, don't allow movement
+        if (this.username != Game.data.username) return;
         addEventListener("keyup", (event) => {
             let key = event.key;
             if (!(key in Person.moves)) return;
             // will send move to socket, on socket response will move person
             // This way, everyone connected to the socket channel will see the move
-            let [dr, dc] = Person.moves[key];
-            let [row, col] = [this.row + dr, this.col + dc];
-            if (row < 0 || row >= Game.rows || col < 0 || col >= Game.cols) return;
-            this.place(row, col);
+            Game.socket.sendPersonMove({
+                "dir": Person.keys.indexOf(key),
+                "username": this.username
+            }); // O(4) => O(1)
         });
+
+        addEventListener("beforeunload", Game.socket.sendPersonLeave);
+    }
+
+    sendMove(dir) {
+        Game.socket.sendPersonMove({
+            "username": this.username,
+            "dir": dir
+        });
+    }
+
+    get socketDetails() {
+        let socketDetails = Game.dataFromBackend();
+        socketDetails["row"] = this.row;
+        socketDetails["col"] = this.col;
+        return socketDetails;
     }
 
     makeDetails() {
@@ -43,6 +84,7 @@ class Person {
         this.details["role"] = this.role;
         this.details["specific"] = this.specific;
     }
+
     fakeDetails() {
         return {
             "name": "",
@@ -50,12 +92,15 @@ class Person {
             "specific": ""
         }
     }
+
     static moves = {
         ArrowUp: [-1, 0],
         ArrowDown: [1, 0],
         ArrowLeft: [0, -1],
         ArrowRight: [0, 1]
     };
+
+    static keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 
     static people = {};
 
@@ -73,7 +118,7 @@ class Person {
             get(`person-${key}`).textContent = details[key] || "";
         }
     }
-    static args = ["username", "firstName", "lastName", "role", "specific"]
+    static roles = ["Helped", "Helper"];
 }
 
 export { Person };

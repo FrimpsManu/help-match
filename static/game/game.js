@@ -1,5 +1,6 @@
 import { Pod } from "./pod.js";
 import { Person } from "./person.js";
+import { createGameSocket } from "./socket.js";
 
 class Game {
     constructor() {
@@ -8,7 +9,8 @@ class Game {
     }
 
     start() {
-        // this.player();
+        // create the socket, which will get things going
+        createGameSocket();
     }
 
     end() {
@@ -16,6 +18,9 @@ class Game {
     }
 
     build() {
+        // set the channel name
+        get("game-channel").textContent = Game.data.channel;
+
         for (let r = 0; r < Game.rows; r++) {
             let rowParent = Game.site.insertRow();
             rowParent.className = "row";
@@ -23,12 +28,6 @@ class Game {
                 new Pod(r, c, rowParent);
             }
         }
-
-        this.person = new Person(Game.dataFromBackend());
-        let initialPlace = this.person.role == "helped" ? [0, 0] : [Game.rows - 1, Game.cols - 1];
-        this.person.place(...initialPlace);
-        // set the channel name
-        get("game-channel").textContent = Game.data.channel;
     }
 
     static rows = 13;
@@ -36,9 +35,7 @@ class Game {
     static site = get("game-site");
     static data = JSON.parse(get("game-data").textContent);
     static dataFromBackend(){
-        let data = Game.data,
-        personData = {}
-        console.log(data);
+        let data = Game.data;
         // process data to include firstName, lastName, username, role, specific
         return {
             firstName: data.first_name,
