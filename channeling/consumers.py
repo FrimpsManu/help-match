@@ -21,6 +21,7 @@ class GameConsumer(AsyncWebsocketConsumer):
         await self.channel_layer.group_add(
             self.group_name, self.channel_name
         )
+
         await self.accept()
         print("Connected")
 
@@ -66,12 +67,7 @@ class GameConsumer(AsyncWebsocketConsumer):
 # Make a chat consumer
 class ChatConsumer(GameConsumer):
     """Consumer for the chat websocket."""
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.group_name = None
-
     async def connect(self, path="pod"):
-        """Connect to the websocket."""
         await super().connect(path)
 
     async def chat_message(self, event):
