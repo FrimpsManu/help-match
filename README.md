@@ -1,6 +1,11 @@
 # Help Match
 Help Match is a Django-based web application designed to connect users who need help with those who can provide assistance. The application leverages the OpenAI API to extract relevant information from user-provided descriptions and matches them with appropriate helpers in help channels.
 
+
+## Video Demo
+[![Help Match Demo](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/003/204/730/datas/original.png)](https://youtu.be/_G9-ufi3sHE)
+
+
 ## Features
 
 - **User Authentication**: Users can sign up, log in, and log out using Django Allauth.
@@ -155,6 +160,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 Feel free to reach out if you have any questions or need further assistance. Happy coding!
 
-Create an account at [helpmatch.io](https://helpmatch.io) to use the deployed, and maintained version of helpmatch.
+<!-- Create an account at [helpmatch.io](https://helpmatch.io) to use the deployed, and maintained version of helpmatch. -->
 Thank yoU!
 
