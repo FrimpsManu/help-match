@@ -26,18 +26,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY = "django-insecure-c%-ly$f%6f4ni53rt)+!mjp6kly^o6pq1gnf3n8!q$^g4v49#n"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     "https://turbo-fiesta-5j57r74xr5rf7jpp.github.dev/",
     "https://bug-free-disco-rjj49575v7qc5prx-8000.app.github.dev/",
     "https://localhost:8000",
-    "https://*",
-    "https://help-match.railway.app",
+    "https://*"
 ]
 
 
@@ -67,6 +66,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.staticfiles",
     "django.contrib.sites",  # Required by allauth
     "allauth",
     "allauth.account",
@@ -83,7 +83,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "help_match.urls"
@@ -114,17 +113,12 @@ ASGI_APPLICATION = "help_match.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-import os
-import dj_database_url
-
-# Get the database URL from the environment variable
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-# Set up the database configuration
 DATABASES = {
-    "default": dj_database_url.parse(DATABASE_URL)
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
-
 
 
 # Password validation
@@ -161,14 +155,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -178,8 +166,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Stuff for Django-Allauth
 
 AUTHENTICATION_BACKENDS = [
-    "django.contrib.auth.backends.ModelBackend",  # Default backend
-    "allauth.account.auth_backends.AuthenticationBackend",  # Required for allauth
+    'django.contrib.auth.backends.ModelBackend',  # Default backend
+    'allauth.account.auth_backends.AuthenticationBackend',  # Required for allauth
 ]
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"  # Or 'username_email' or 'username'
@@ -209,9 +197,9 @@ ACCOUNT_FORMS = {
 
 
 CHANNEL_LAYERS = {
-  "default": {
-    "BACKEND": "channels_redis.core.RedisChannelLayer",
-    "CONFIG": {
+  'default': {
+    'BACKEND': 'channels_redis.core.RedisChannelLayer',
+    'CONFIG': {
       "hosts":[{
             "address": os.getenv("REDISCLOUD_URL"),
         }]
