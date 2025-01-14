@@ -1,0 +1,1 @@
+web: python -m gunicorn wooden.asgi:application -k uvicorn.workers.UvicornWorker

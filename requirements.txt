@@ -27,8 +27,10 @@ distro==1.9.0
 Django==5.1.4
 django-allauth==65.3.1
 frozenlist==1.5.0
+gunicorn==23.0.0
 h11==0.14.0
 httpcore==1.0.7
+httptools==0.6.4
 httpx==0.28.1
 hyperlink==21.0.0
 idna==3.10
@@ -39,8 +41,10 @@ kombu==5.4.2
 msgpack==1.1.0
 multidict==6.1.0
 openai==0.28.0
+packaging==24.2
 prompt_toolkit==3.0.48
 propcache==0.2.1
+psycopg2-binary==2.9.10
 pyasn1==0.6.1
 pyasn1_modules==0.4.1
 pycparser==2.22
@@ -49,6 +53,7 @@ pydantic_core==2.27.2
 pyOpenSSL==24.3.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
+PyYAML==6.0.2
 redis==5.2.1
 requests==2.32.3
 service-identity==24.2.0
@@ -62,7 +67,11 @@ txaio==23.1.1
 typing_extensions==4.12.2
 tzdata==2024.2
 urllib3==2.3.0
+uvicorn==0.34.0
 vine==5.1.0
+watchfiles==1.0.4
 wcwidth==0.2.13
+websockets==14.1
+whitenoise==6.8.2
 yarl==1.18.3
 zope.interface==7.2
