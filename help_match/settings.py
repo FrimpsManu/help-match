@@ -113,16 +113,17 @@ ASGI_APPLICATION = "help_match.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import os
+import dj_database_url
+
+# Get the database URL from the environment variable
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+# Set up the database configuration
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("PGDATABASE"),
-        "USER": os.getenv("PGUSER"),
-        "PASSWORD": os.getenv("PGPASSWORD"),
-        "HOST": os.getenv("PGHOST"),
-        "PORT": os.getenv("PGPORT"),
-    }
+    "default": dj_database_url.parse(DATABASE_URL)
 }
+
 
 
 # Password validation
