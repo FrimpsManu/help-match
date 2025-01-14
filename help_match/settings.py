@@ -36,7 +36,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://turbo-fiesta-5j57r74xr5rf7jpp.github.dev/",
     "https://bug-free-disco-rjj49575v7qc5prx-8000.app.github.dev/",
     "https://localhost:8000",
-    "https://*"
+    "https://*",
+    "https://help-match.railway.app",
 ]
 
 
