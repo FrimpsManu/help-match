@@ -52,3 +52,32 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 10px #FCB432;
 }
+
+/* Add styles for person-details that will make sure it is fixed at the top left */
+#person-details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: #FCB432;
+    border-radius: 7px;
+    /* box-shadow: 0 0 10px #FCB432; */
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+}
+
+#person-details tr, #person-details tbody {
+    display: flex;
+    flex-direction: row;
+}
+
+#person-details td:first-child {
+    color: green;
+}
+
+#person-details td[id]{
+    border-right: 4px double #fff;
+    margin-right: 4px;
+    padding-right: 4px;
+}

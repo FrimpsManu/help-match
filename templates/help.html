@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div>
+        <a id="logout" href="/accounts/logout/">Logout</a>
+    </div>
     <header>
         <h1>Want to give/get help?</h1>
         <p>Choose a channel and get started!</p>

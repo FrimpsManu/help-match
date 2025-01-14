@@ -68,6 +68,26 @@ button:hover {
     background-color: #45a049;
 }
 
+/* style #logout 
+#logout is an anchor element inside a div
+*/
+#logout {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 4px;
+}
+
+#logout:hover {
+    background-color: #333;
+    color: white;
+}
+
 @media (max-width: 600px) {
     form {
         width: 100%;
