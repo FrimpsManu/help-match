@@ -30,15 +30,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     "https://turbo-fiesta-5j57r74xr5rf7jpp.github.dev/",
     "https://bug-free-disco-rjj49575v7qc5prx-8000.app.github.dev/",
     "https://localhost:8000",
+    "http://localhost:8000",
     "https://*",
     "https://helpmatch.up.railway.app",
+    "http://helpmatch.up.railway.app",
 ]
 
 
@@ -123,8 +125,6 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 DATABASES = {
     "default": dj_database_url.parse(DATABASE_URL)
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
