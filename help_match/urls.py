@@ -15,6 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+import os
+
+from dotenv import load_dotenv
+
 from django.contrib import admin
 from django.urls import include, path
 
@@ -23,9 +27,11 @@ from chat.views import Chat
 from home.views import Home
 from game.views import Game
 
+load_dotenv()
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    # add admin url from .env
+    path(os.getenv("ADMIN_URL"), admin.site.urls),
     path("ai-select/", AISelect.as_view(), name="ai-select"),
     path("chat/", Chat.as_view(), name="chat"),
     path("", Home.as_view(), name="help"),
