@@ -8,6 +8,7 @@ commands["-s"]="python manage.py shell"
 commands["-m"]="python manage.py makemigrations"
 commands["-M"]="python manage.py migrate"
 commands["-d"]="docker run --rm -p 6379:6379 redis:latest"
+commands["-R"]="python -m gunicorn help_match.asgi:application -k uvicorn.workers.UvicornWorker"
 
 if [ "$run" ]; then
     eval "${commands[$run]}"
