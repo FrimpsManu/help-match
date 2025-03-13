@@ -14,75 +14,6 @@ Help Match is a Django-based web application designed to connect users who need 
 - **Game Interaction**: Users can interact in a game-like environment to facilitate help and collaboration.
 - **AI Integration**: Utilizes OpenAI's GPT-3.5 API to extract information from user descriptions.
 
-## Project Structure
-
-```
-help_match/
-├── ai_select/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── migrations/
-│   ├── tests.py
-│   └── views.py
-├── channeling/
-│   ├── __init__.py
-│   ├── apps.py
-│   ├── consumers.py
-│   ├── migrations/
-│   ├── routing.py
-│   └── tests.py
-├── chat/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── migrations/
-│   ├── tests.py
-│   └── views.py
-├── game/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── migrations/
-│   ├── tests.py
-│   └── views.py
-├── home/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── migrations/
-│   ├── models.py
-│   ├── tests.py
-│   └── views.py
-├── static/
-│   ├── accounts.css
-│   ├── chatstyle.css
-│   ├── game/
-│   ├── help/
-│   └── styles.css
-├── templates/
-│   ├── allauth/
-│   ├── chat.html
-│   ├── game.html
-│   └── help.html
-├── help_match/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── .env
-├── .gitignore
-├── README.md
-├── db.sqlite3
-├── extract_infp.py
-├── helper.py
-├── manage.py
-├── requirements.txt
-└── run
-```
-
 ## Installation (if you want to extend/contribute)
 
 1. **Clone the repository**:
@@ -158,7 +89,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ---
 
-Feel free to reach out if you have any questions or need further assistance. Happy coding!
+Feel free to reach out if you have any questions or need further assistance.
 
 <!-- Create an account at [helpmatch.io](https://helpmatch.io) to use the deployed, and maintained version of helpmatch. -->
 Thank yoU!
